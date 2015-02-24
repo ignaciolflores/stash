@@ -1,8 +1,8 @@
 # Install Atlassian Stash
 # This is a trusted build, we need postgresql
-FROM linux/postgres
+FROM ubuntu:14.04
 
-MAINTAINER Tom Eklöf tom@linux-konsult.com
+MAINTAINER Ignacio López Flores ignacio@introbay.com
 
 # Prepare all the files
 ENV AppName stash
