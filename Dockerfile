@@ -6,19 +6,15 @@ MAINTAINER Tom Eklöf tom@linux-konsult.com
 
 # Prepare all the files
 ENV AppName stash
-ENV AppVer 2.10.1
+ENV AppVer 3.6.1
 ENV STASH_HOME /data/stash-home
 ENV STASHUSR stash
-ADD http://www.atlassian.com/software/stash/downloads/binary/atlassian-stash-2.10.1.tar.gz /opt/atlassian/
-# stash.rb is to create the database
-ADD ./chef/recipes/stash.rb /etc/chef/cookbooks/database/recipes/stash.rb
-ADD ./install_cmds.sh /install_cmds.sh
-ADD ./node.json /etc/chef/node.json
+ADD http://www.atlassian.com/software/stash/downloads/binary/atlassian-stash-$AppVer.tar.gz /opt/atlassian/
 ADD ./install_cmds.sh /install_cmds.sh
 ADD ./init.sh /init.sh
 
 # Uncomment to enable backup of files on host
-# VOLUME ["/data"]
+VOLUME ["/data"]
 
 ## Now Install Atlassian Jira
 RUN /install_cmds.sh
@@ -27,7 +23,7 @@ RUN /install_cmds.sh
 CMD ["sh", "/init.sh"]
 
 # Http Port
-EXPOSE 7990
+EXPOSE 10083
 
 # SSH Port
-EXPOSE 7999
+EXPOSE 10083

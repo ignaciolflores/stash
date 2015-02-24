@@ -28,10 +28,6 @@ echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-sel
 echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
 apt-get -y install libpq-dev oracle-java7-installer
 
-# Here we change dp password and create the database. See linux/postgres documentation for examples.
-sed -i "s%md5sumhash%$(echo -n 'dbpassword' | openssl md5 | sed -e 's/.* /md5/')%g" /etc/chef/node.json
-sysctl -w kernel.shmmax=714219520 ; /etc/init.d/postgresql start ; chef-solo ; /etc/init.d/postgresql stop	# Chef-solo makes all the changes
-
 set -x
 
 useradd --system --home $STASH_HOME --user-group $STASHUSR   # Debian way
@@ -42,16 +38,7 @@ tar xzf /opt/atlassian/atlassian-$AppName-$AppVer.tar.gz -C /opt/atlassian/ --ow
 mkdir -p $STASH_HOME
 chown -R $STASHUSR /opt/atlassian/atlassian-$AppName-$AppVer
 chown -R $STASHUSR $STASH_HOME
-mkdir -p /data/var/lib/
-
-# Move the data files to /data
-if [ -d /var/lib/pgsql ]; then
-	mkdir -p /data/var/lib
-	mv /var/lib/pgsql /data/var/lib/
-	ln -s /data/var/lib/pgsql /var/lib/pgsql
-fi
 
 # Clean up
 rm -f /opt/atlassian/atlassian-$AppName-$AppVer.tar.gz
 rm -f /var/cache/oracle-jdk7-installer/jdk-7u45-linux-x64.tar.gz
-rm -f /opt/chef/embedded/postgresql-9.2.1.tar.gz
