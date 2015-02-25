@@ -20,7 +20,7 @@
 ## Install Java
 # Add Oracle Java PPA
 apt-get -y update
-apt-get -y install python-software-properties
+apt-get -y install software-properties-common python-software-properties
 add-apt-repository -y ppa:webupd8team/java
 apt-get -y update
 # Auto-accept the Oracle License
