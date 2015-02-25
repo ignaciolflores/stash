@@ -20,7 +20,7 @@
 ## Install Java
 # Add Oracle Java PPA
 apt-get -y update
-apt-get -y install software-properties-common python-software-properties
+apt-get -y install software-properties-common python-software-properties git
 add-apt-repository -y ppa:webupd8team/java
 apt-get -y update
 # Auto-accept the Oracle License
@@ -41,4 +41,4 @@ chown -R $STASHUSR $STASH_HOME
 
 # Clean up
 rm -f /opt/atlassian/atlassian-$AppName-$AppVer.tar.gz
-rm -f /var/cache/oracle-jdk7-installer/jdk-7u45-linux-x64.tar.gz
+rm -f /var/cache/oracle-jdk7-installer/jdk-7u76-linux-x64.tar.gz
