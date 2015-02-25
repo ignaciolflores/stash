@@ -1,4 +1,5 @@
 # Install Atlassian Stash
+# This is a trusted build, we need postgresql
 FROM ubuntu:14.04
 
 MAINTAINER Ignacio López Flores ignacio@introbay.com
@@ -15,14 +16,14 @@ ADD ./init.sh /init.sh
 # Uncomment to enable backup of files on host
 VOLUME ["/data"]
 
-## Now Install Atlassian Stash
+## Now Install Atlassian Jira
 RUN /install_cmds.sh
 
 # Start the service
 CMD ["sh", "/init.sh"]
 
 # Http Port
-EXPOSE 7990
+EXPOSE 10083
 
 # SSH Port
-EXPOSE 7990
+EXPOSE 10083
