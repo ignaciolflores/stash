@@ -25,4 +25,4 @@ CMD ["sh", "/init.sh"]
 EXPOSE 7990
 
 # SSH Port
-EXPOSE 7990
+EXPOSE 7999
