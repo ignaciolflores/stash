@@ -44,7 +44,7 @@ docker run --name stash -d \
     -p local_port:7990 \
     -v /local/dir/application-data:/opt/atlassian/application-data \
     --link jira-postgresql:db.stash \
-    "$USER"/stash:3.6.1 \
+    "$USER"/stash:3.9.1 \
     /init.sh
 ```
 
