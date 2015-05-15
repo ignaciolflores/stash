@@ -11,7 +11,7 @@ You can build the image yourself.
 ```
 git clone https://github.com/ignaciolflores/stash.git
 cd stash
-docker build -t="$USER/stash:3.6.1" .
+docker build -t="$USER/stash:3.9.1" .
 ```
 
 # Quick Start
