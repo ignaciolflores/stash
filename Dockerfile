@@ -5,7 +5,7 @@ MAINTAINER Ignacio López Flores ignacio@introbay.com
 
 # Prepare all the files
 ENV AppName stash
-ENV AppVer 3.9.1
+ENV AppVer 3.11.2
 ENV STASH_HOME /data/stash-home
 ENV STASHUSR stash
 ADD http://www.atlassian.com/software/stash/downloads/binary/atlassian-stash-$AppVer.tar.gz /opt/atlassian/
