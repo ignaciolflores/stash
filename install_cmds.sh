@@ -26,18 +26,18 @@ apt-get -y update
 # Auto-accept the Oracle License
 echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
 echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
-apt-get -y install libpq-dev oracle-java7-installer
+apt-get -y install libpq-dev oracle-java8-installer
 
 set -x
 
-useradd --system --home $STASH_HOME --user-group $STASHUSR   # Debian way
+useradd --system --home $BITBUCKET_HOME --user-group $BITBUCKETUSR   # Debian way
 
 ## Now Install Atlassian Stash
 mkdir -p /opt/atlassian/
-tar xzf /opt/atlassian/atlassian-$AppName-$AppVer.tar.gz -C /opt/atlassian/ --owner=$STASHUSR
-mkdir -p $STASH_HOME
-chown -R $STASHUSR /opt/atlassian/atlassian-$AppName-$AppVer
-chown -R $STASHUSR $STASH_HOME
+tar xzf /opt/atlassian/atlassian-$AppName-$AppVer.tar.gz -C /opt/atlassian/ --owner=$BITBUCKETUSR
+mkdir -p $BITBUCKET_HOME
+chown -R $BITBUCKETUSR /opt/atlassian/atlassian-$AppName-$AppVer
+chown -R $BITBUCKETUSR $BITBUCKET_HOME
 
 # Clean up
 rm -f /opt/atlassian/atlassian-$AppName-$AppVer.tar.gz
