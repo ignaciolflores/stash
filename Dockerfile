@@ -4,11 +4,11 @@ FROM ubuntu:14.04
 MAINTAINER Ignacio López Flores ignacio@introbay.com
 
 # Prepare all the files
-ENV AppName stash
+ENV AppName bitbucket
 ENV AppVer 4.0.0
 ENV STASH_HOME /data/stash-home
 ENV STASHUSR stash
-ADD http://www.atlassian.com/software/stash/downloads/binary/atlassian-bitbucket-$AppVer.tar.gz /opt/atlassian/
+ADD http://www.atlassian.com/software/stash/downloads/binary/atlassian-$AppName-$AppVer.tar.gz /opt/atlassian/
 ADD ./install_cmds.sh /install_cmds.sh
 ADD ./init.sh /init.sh
 
