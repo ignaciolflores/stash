@@ -1,1 +1,1 @@
-docker build -t introbay/stash:4.0.0 .
+docker build -t introbay/stash:4.2.0 .
