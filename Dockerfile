@@ -5,7 +5,7 @@ MAINTAINER Ignacio López Flores ignacio@introbay.com
 
 # Prepare all the files
 ENV AppName bitbucket
-ENV AppVer 4.2.0
+ENV AppVer 4.3.2
 ENV BITBUCKET_HOME /data/stash-home
 ENV BITBUCKETUSR stash
 ENV JAVA_VERSION 8
